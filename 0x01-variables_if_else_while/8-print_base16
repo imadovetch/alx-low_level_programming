@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - prints all the numbers of base 16 in lowercase,
+ * main - the possible different combinations of three digits
  * followed by a new line
- * Description: this is a description
+ * Description: description
  * Return: Always 0 (Success)
  */
 int main(void)
