@@ -1,8 +1,7 @@
 #include <stdio.h>
-
 /**
  * main the numbers of base 16 in lowercase,
- *  new line
+ * new line
  * Return: Always 0 (Success)
  */
 int main(void)
