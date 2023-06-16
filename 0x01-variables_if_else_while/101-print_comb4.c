@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 /**
- * main  the possible different combinations of three digits
+ * main - the possible different combinations of three digits
  * followed by a new line
+ * Description: description
  * Return: Always 0 (Success)
  */
 int main(void)
