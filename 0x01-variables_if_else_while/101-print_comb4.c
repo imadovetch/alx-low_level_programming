@@ -1,3 +1,4 @@
+/*huihuih*/
 #include <stdio.h>
 
 /**
