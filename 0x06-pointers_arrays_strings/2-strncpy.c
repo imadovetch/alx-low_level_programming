@@ -1,29 +1,28 @@
 #include "main.h"
-
 /**
- * _strncpy - Copies a string from src to dest, limited to n characters.
+ * _strncpy - copy a string
+ * @dest: input value
+ * @src: input value
+ * @n: input value
  *
- * @dest: Pointer to the destination string.
- * @src: Pointer to the source string.
- * @n: Maximum number of characters to copy from src.
- *
- * Return: Pointer to the resulting string (dest).
+ * Return: dest
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-int i = 0;
+	int j;
 
-while (src[i] != '\0' && i < n)
-{
-dest[i] = src[i];
-i++;
+	j = 0;
+	while (j < n && src[j] != '\0')
+	{
+		dest[j] = src[j];
+		j++;
+	}
+	while (j < n)
+	{
+		dest[j] = '\0';
+		j++;
+	}
+
+	return (dest);
 }
 
-while (i < n)
-{
-dest[i] = '\0';
-i++;
-}
-
-return (dest);
-}
