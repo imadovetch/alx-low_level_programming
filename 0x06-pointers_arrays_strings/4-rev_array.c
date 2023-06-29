@@ -1,4 +1,3 @@
-#!/bin/bash
 #include "main.h"
 
 /**
@@ -7,7 +6,7 @@
  * @a: Pointer to the integer array.
  * @n: Number of elements in the array.
  */
-void reverse_array(int *a, int n) /* [1, 2, 3, 4, 5] == sizeof(arr) == 4 * 8 = 32 / sizeof(arr[0]) = 4 == 20 / 4 = 5 */
+void reverse_array(int *a, int n)
 {
 int i, j, tmp;
 
