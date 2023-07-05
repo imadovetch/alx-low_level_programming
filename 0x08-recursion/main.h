@@ -10,4 +10,4 @@ int is_prime_number(int n);
 int checker(int n, int x);
 int is_palindrome(char *s);
 int is_second_palindrome(char *s, int x);
-int len(char *s, int x)
+int len(char *s, int x);
