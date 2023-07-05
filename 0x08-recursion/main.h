@@ -11,3 +11,4 @@ int checker(int n, int x);
 int is_palindrome(char *s);
 int is_second_palindrome(char *s, int x);
 int len(char *s, int x);
+int wildcmp(char *s1, char *s2);
