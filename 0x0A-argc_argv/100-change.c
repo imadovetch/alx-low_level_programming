@@ -10,32 +10,46 @@
  */
 int main(int argc, char *argv[])
 {
-	int cents, quarters, dimes, nickels, pennies;
+    int cents, quarters, dimes, nickels, pennies;
+    int i, j;
 
-	if (argc != 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
+    if (argc != 2)
+    {
+        printf("Error\n");
+        return (1);
+    }
 
-	cents = atoi(argv[1]);
+    /* Checking if the provided input is a valid number */
+    for (i = 1; i < argc; i++)
+    {
+        for (j = 0; argv[i][j] != '\0'; j++)
+        {
+            /* If character is not a digit */
+            if (argv[i][j] < '0' || argv[i][j] > '9')
+            {
+                printf("Error\n");
+                return (1);
+            }
+        }
+    }
 
-	if (cents < 0)
-	{
-		printf("0\n");
-		return (0);
-	}
+    cents = atoi(argv[1]);
 
-	quarters = cents / 25;
-	cents %= 25;
-	dimes = cents / 10;
-	cents %= 10;
-	nickels = cents / 5;
-	cents %= 5;
-	pennies = cents;
+    if (cents < 0)
+    {
+        printf("0\n");
+        return (0);
+    }
 
-	printf("%d\n", quarters + dimes + nickels + pennies);
+    quarters = cents / 25;
+    cents %= 25;
+    dimes = cents / 10;
+    cents %= 10;
+    nickels = cents / 5;
+    cents %= 5;
+    pennies = cents;
 
-	return (0);
+    printf("%d\n", quarters + dimes + nickels + pennies);
+
+    return (0);
 }
-
