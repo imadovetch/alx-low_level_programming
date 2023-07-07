@@ -1,40 +1,37 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  /* Standard input/output definitions */
 
-/**
- * main - Entry point, calculates the minimum number of coins to make change
- * @argc: Number of arguments
- * @argv: Array of arguments
- *
- * Return: 0 on success, 1 if there is an error
- */
-int main(int argc, char *argv[])
+/* The amount to be changed */
+int num = 100;
+
+/* The available coins */
+int coins[5] = {25, 10, 5, 1};
+
+/* The result variable */
+int result = 0;
+
+int main(void)
 {
-	int cents, quarters, dimes, nickels, pennies;
-
-	if (argc != 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	cents = atoi(argv[1]);
-
-	if (cents < 0)
-	{
-		printf("0\n");
-		return (0);
-	}
-
-	quarters = cents / 25;
-	cents %= 25;
-	dimes = cents / 10;
-	cents %= 10;
-	nickels = cents / 5;
-	cents %= 5;
-	pennies = cents;
-
-	printf("%d\n", quarters + dimes + nickels + pennies);
-
-	return (0);
+    /* Declare and initialize the j variable */
+    int j;
+    
+    /* Iterate as long as j is less than 5 and num is greater than or equal to 0 */
+    for (j = 0; j < 5 && num >= 0; j++)
+    {
+        /* Loop while num is greater than or equal to coins[j] */
+        while (num >= coins[j])
+        {
+            /* Increment result by 1 */
+            result++;
+            
+            /* Subtract coins[j] from num and store the result in num */
+            num = num - coins[j];
+        }
+    }
+    
+    /* Print the result */
+    printf("%d\n", result);
+    
+    /* Return 0 to indicate successful program execution */
+    return (0);
 }
+
