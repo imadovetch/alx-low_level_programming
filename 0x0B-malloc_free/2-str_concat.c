@@ -17,8 +17,10 @@ char *str_concat(char *s1, char *s2)
 	int f;
 	int g;
 
-	if (*s1 == '\0' || *s2 == '\0')
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
 	while (s1[i] != '\0')
 		i++;
@@ -30,14 +32,12 @@ char *str_concat(char *s1, char *s2)
 
 	if (str == NULL)
 		return (NULL);
-
 	for (f = 0; f < i; f++)
 		str[f] = s1[f];
-
 	for (g = i; g < i + j; g++)
 		str[g] = s2[g - i];
+
 	str[i + j] = '\0';	/* Add null-terminating character at the end */
 
 	return (str);
 }
-
