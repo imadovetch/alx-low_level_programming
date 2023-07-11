@@ -1,50 +1,50 @@
 #include "main.h"
-
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * strtow - Splits a string into an array of words.
  * @str: The input string.
- *
- * Return: A pointer to an array of strings (words)
+ * Return: A pointer to an array of strings (words) or NULL if str is NULL
+ *         or str is empty or if the function fails
  */
 char **strtow(char *str)
 {
-	int i = 0, numar = 0, x = 0, p = 0, in_word = 0, size = 0;
+	int i = 0, num_words = 0, start = -1, end;
 	char **array;
 
-	while (str[size] != '\0')
+	if (str == NULL || str[0] == '\0')
+		return (NULL);
+	while (str[i])
 	{
-		if (str[size] != ' ')
-			size++;
-		size++;	}
-	array = malloc(sizeof(char *) * (size + 1));
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+			num_words++;
+		i++; }
+	array = malloc(sizeof(char *) * (num_words + 1));
 	if (array == NULL)
 		return (NULL);
-	for (i = 0; i < size; i++)
+	for (i = num_words = 0; str[i]; i++)
 	{
-		array[i] = malloc(sizeof(char) * (size + 1));
-		if (array[i] == NULL)
-			return (NULL); }
-	for (; str[numar] != '\0'; numar++)
+		if (str[i] != ' ' && start < 0)
+			start = i;
+		if (str[i] == ' ' && start >= 0)
+		{
+			end = i;
+			array[num_words] = malloc(sizeof(char) * (end - start + 1));
+			if (array[num_words] == NULL)
+				return (NULL);
+			array[num_words] = strncpy(array[num_words], &str[start], end - start);
+			array[num_words][end - start] = '\0';
+			num_words++;
+			start = -1; } }
+	if (start >= 0)
 	{
-		if (str[numar] != ' ' && in_word == 0)
-		{
-			in_word = 1;
-			array[x][p] = str[numar];
-			p++; }
-		else if (str[numar] != ' ' && in_word == 1)
-		{
-			array[x][p] = str[numar];
-			p++; }
-		else if (str[numar] == ' ' && in_word == 1)
-		{
-			in_word = 0;
-			array[x][p] = '\0';
-			x++;
-			p = 0; } }
-	if (p == 0)
-		array[x] = NULL;
-	else
-	{
-		array[x][p] = '\0';
-		array[x + 1] = NULL; }
-		return (array); }
+		array[num_words] = malloc(sizeof(char) * (i - start + 1));
+		if (array[num_words] == NULL)
+			return (NULL);
+		array[num_words] = strncpy(array[num_words], &str[start], i - start);
+		array[num_words][i - start] = '\0';
+		num_words++; }
+
+	array[num_words] = NULL;
+	return (array); }
+
