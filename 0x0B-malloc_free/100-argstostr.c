@@ -15,6 +15,8 @@ char *argstostr(int argc, char **argv)
 {
 
 	int c, h, i, g;
+	char *str;
+	int index = 0;
 
 	for (h = 0; h < argc; h++)
 	{
@@ -25,14 +27,12 @@ char *argstostr(int argc, char **argv)
 		c += 2;
 	}
 
-	char *str = malloc(sizeof(char) * (c + 1));
+	str = malloc(sizeof(char) * (c + 1));
 
 	if (str == NULL)
 	{
 		return (NULL);
 	}
-
-	int index = 0;
 
 	for (i = 0; i < argc; i++)
 	{
