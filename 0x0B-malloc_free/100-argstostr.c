@@ -16,7 +16,7 @@ char *argstostr(int argc, char **argv)
 
 	int c, h, i, g;
 
-	for (h = 1; h < argc; h++)
+	for (h = 0; h < argc; h++)
 	{
 		for (g = 0; argv[h][g] != '\0'; g++)
 		{
@@ -34,7 +34,7 @@ char *argstostr(int argc, char **argv)
 
 	int index = 0;
 
-	for (i = 1; i < argc; i++)
+	for (i = 0; i < argc; i++)
 	{
 		for (g = 0; argv[i][g] != '\0'; g++)
 		{
