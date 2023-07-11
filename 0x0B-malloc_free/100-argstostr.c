@@ -17,11 +17,11 @@ char *argstostr(int argc, char **argv)
 	int c, h, i, g;
 	char *str;
 	int index = 0;
-	
-	if(argc == 0)
+
+	if (argc == 0)
 		return (NULL);
 	for (h = 0; h < argc; h++)
-	{
+
 		for (g = 0; argv[h][g] != '\0'; g++)
 		{
 			c++;
