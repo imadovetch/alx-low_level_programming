@@ -21,7 +21,7 @@ char *argstostr(int argc, char **argv)
 	if (argc == 0)
 		return (NULL);
 	for (h = 0; h < argc; h++)
-
+	{
 		for (g = 0; argv[h][g] != '\0'; g++)
 		{
 			c++;
