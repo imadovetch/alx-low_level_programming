@@ -18,7 +18,7 @@ char *argstostr(int argc, char **argv)
 	char *str;
 	int index = 0;
 	
-	if(argc == 0||argv == '\0')
+	if(argc == 0)
 		return (NULL);
 	for (h = 0; h < argc; h++)
 	{
