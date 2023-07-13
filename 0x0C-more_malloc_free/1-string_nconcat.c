@@ -33,10 +33,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		ptr[x] = s1[x];
 	}
-	x = 0;
-	for (; x < n; x++)
-		ptr[x + len1] = s2[x];
-	ptr[x + len1] = '\0';  // Ensure the new string is null-terminated
+	for (unsigned int i = 0; i < n; i++)
+	{
+		ptr[x] = s2[i];
+		x++;
+	}
+	ptr[x] = '\0';  // Ensure the new string is null-terminated
 	return ptr;
 }
 
