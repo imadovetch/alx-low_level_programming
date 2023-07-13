@@ -11,17 +11,22 @@
  *
  * Return: pointer to the newly allocated space in memory, which contains s1,
  * followed by the first n bytes of s2, and null terminated. If the function
- * fails, it should return NULL.
+ * fails or if NULL is passed, it treats it as an empty string and returns NULL.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
 	unsigned int len1, x = 0;
 
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
 	len1 = strlen(s1);
 	ptr = malloc(len1 + n + 1);
 	if (ptr == NULL)
-		return (NULL);
+		return NULL;
 	if (n >= strlen(s2))
 		n = strlen(s2);
 	for (; s1[x] != '\0'; x++)
@@ -29,9 +34,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		ptr[x] = s1[x];
 	}
 	x = 0;
-	for (; x <= n; x++)
+	for (; x < n; x++)
 		ptr[x + len1] = s2[x];
-	ptr[x + len1] = '\0';  
-	return (ptr);
+	ptr[x + len1] = '\0';  // Ensure the new string is null-terminated
+	return ptr;
 }
 
