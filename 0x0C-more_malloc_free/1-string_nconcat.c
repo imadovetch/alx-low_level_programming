@@ -10,7 +10,7 @@
  *
  * Return: pointer to the newly allocated space in memory, which contains s1,
  * followed by the first n bytes of s2, and null terminated. If the function
- * fails or if NULL is passed, it treats it as an empty string and returns NULL.
+ * fails or if NULL is passed,  an empty string and returns NULL.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
