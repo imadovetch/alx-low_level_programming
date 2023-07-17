@@ -1,17 +1,22 @@
-#include <stdio.h>
-/**
- * struct dog - structure to define a dog
- * @name: dog's name
- * @owner: dog's owner
- * @age: dog's age
- *
- * Description: A struct that stores the name, the owner and the age of a dog.
- */
+#ifndef DOG_H
+#define DOG_H
 
+#include <stdio.h>
+
+/**
+ * struct dog - Define a dog
+ * @name: Dog's name
+ * @owner: Dog's owner
+ * @age: Dog's age
+ *
+ * Description: Data structure that stores the name
+ */
 struct dog
 {
 	char *name;
 	char *owner;
 	float age;
 };
+
+#endif /* DOG_H */
 
