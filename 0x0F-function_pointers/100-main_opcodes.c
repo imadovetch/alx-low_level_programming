@@ -8,39 +8,43 @@
  *
  * Return: Always 0.
  */
+#include <stdio.h>
+#include <stdlib.h>
+
 int main(int argc, char *argv[])
 {
-    int bytes, index;
-    int (*address)(int, char **) = main;
-    unsigned char opcode;
+	int num1;
+	int num2;
+	char *operation;
+	int (*func)(int, int);
 
-    if (argc != 2)
-    {
-        printf("Error\n");
-        exit(98);
-    }
+	if (argc != 4)
+	{
+		printf("Error\n");
+		exit(98);
+	}
 
-    bytes = atoi(argv[1]);
+	num1 = atoi(argv[1]);
+	operation = argv[2];
+	num2 = atoi(argv[3]);
 
-    if (bytes < 0)
-    {
-        printf("Error\n");
-        exit(2);
-    }
+	if (operation == '%' || operation == '/')
+	{
+		if (num2 == 0)
+		{
+			printf("Error\n");
+			exit(100);
+		}
+	}
 
-    for (index = 0; index < bytes; index++)
-    {
-        opcode = *(unsigned char *)address;
-        printf("%.2x", opcode);
+	func = get_op_func(operation);
+	if (func == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
-        if (index == bytes - 1)
-            continue;
-        printf(" ");
+	printf("%d\n", func(num1, num2));
 
-        address++;
-    }
-
-    printf("\n");
-
-    return (0);
+	return 0;
 }
