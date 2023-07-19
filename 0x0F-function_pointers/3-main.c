@@ -1,12 +1,7 @@
 #include "3-calc.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/**
- * main - Entry point of the program
- * @argc: Argument count
- * @argv: Array of command-line arguments
- *
- * Return: Exit status of the program
- */
 int main(int argc, char *argv[])
 {
 	int num1;
@@ -42,6 +37,5 @@ int main(int argc, char *argv[])
 
 	printf("%d\n", func(num1, num2));
 
-	return 0;
+	return (0);
 }
-
