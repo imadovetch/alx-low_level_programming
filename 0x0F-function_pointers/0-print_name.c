@@ -7,7 +7,7 @@
  * @name: The name to be printed
  * @f: Pointer to a function that takes a char pointer
  *
- * Description: This function calls the provided function to 
+ * Description: This function calls the provided function to
  * If the name or the function pointer is NULL, nothing is done.
  */
 void print_name(char *name, void (*f)(char *))
