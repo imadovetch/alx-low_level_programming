@@ -19,13 +19,12 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	if (*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*' && *argv[2] != '/' && *argv[2] != '%')
+	if (*argv[2] != '+' && *argv[2] != '-'
+	 && *argv[2] != '*' && *argv[2] != '/' && *argv[2] != '%')
 	{
 		printf("Error\n");
 		return (1);
 	}
-
-	
 	num1 = atoi(argv[1]);
 	operation = argv[2];
 	num2 = atoi(argv[3]);
