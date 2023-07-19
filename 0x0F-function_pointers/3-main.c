@@ -7,6 +7,7 @@
  *
  * Return: Exit status of the program
  */
+
 int main(int argc, char *argv[])
 {
     int num1;
@@ -44,3 +45,4 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
