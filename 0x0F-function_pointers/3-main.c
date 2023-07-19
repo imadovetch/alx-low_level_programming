@@ -9,6 +9,10 @@
  */
 int main(int argc, char *argv[])
 {
+	int num1;
+	int num2;
+	char *operation;
+
 	if (argc != 4)
 	{
 		printf("Error\n");
@@ -21,9 +25,10 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	int num1 = atoi(argv[1]);
-	char *operation = argv[2];
-	int num2 = atoi(argv[3]);
+	
+	num1 = atoi(argv[1]);
+	operation = argv[2];
+	num2 = atoi(argv[3]);
 
 	printf("%d\n", get_op_func(operation)(num1, num2));
 
