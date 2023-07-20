@@ -1,6 +1,12 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "variadic_functions.h"
 
+/**
+ * print_strings - Prints strings separated by a given separator.
+ *
+ * @separator: Pointer to the separator string.
+ * @n: The number of strings to be printed.
+ * @...: Variable number of strings to be printed.
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
     va_list ap;
@@ -15,12 +21,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
         if (i < n - 1 && separator)
             printf("%s", separator);
     }
-	printf("\n");
+    printf("\n");
 
     va_end(ap);
-}
-int main(void)
-{
-    print_strings(", ", 2, "Jay", "Django");
-    return (0);
 }
