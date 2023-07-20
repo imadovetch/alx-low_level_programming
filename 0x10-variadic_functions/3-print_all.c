@@ -1,13 +1,13 @@
 #include "variadic_functions.h"
 
 /**
- * print_strings - Prints a variable number of strings, separated by a string.
+ * print_all - Prints a variable number
+ *  of arguments based on a specified format.
  *
- * @separator: The string to print between the strings.
- * @n: The number of strings to print.
- * @...: The strings to print.
+ * @format: A string containing the format specifiers for the arguments.
+ * @...: The arguments to print.
  */
-void print_all(const char * const format, ...);
+void print_all(const char * const format, ...)
 {
 	int i = 0;
 	char *str, *sep = "";
