@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "variadic_functions.h"
 
 /**
  * print_numbers - Prints numbers separated by a given separator.
@@ -22,9 +21,4 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	}
 	printf("\n");
 	va_end(ap);
-}
-int main(void)
-{
-    print_numbers(", ", 4, 0, 98, -1024, 402);
-    return (0);
 }
