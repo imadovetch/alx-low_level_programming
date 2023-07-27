@@ -1,4 +1,5 @@
 #include "lists.h"
+
 /**
  * add_node_end - Adds a new node at the end of a linked list.
  * @head: Pointer to a pointer to the head of the list.
@@ -6,7 +7,8 @@
  *
  * Return: Address of the new node, or NULL on failure.
  */
-list_t *add_node_end(list_t **head, const char *str){
+list_t *add_node_end(list_t **head, const char *str)
+{
 	list_t *new_node = malloc(sizeof(list_t));
 	if (!new_node)
 		return (NULL);
@@ -37,3 +39,4 @@ list_t *add_node_end(list_t **head, const char *str){
 
 	return (new_node);
 }
+
