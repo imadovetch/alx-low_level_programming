@@ -5,6 +5,16 @@
 #include <string.h>
 #include <stdio.h>
 
+/**
+ * struct list_s - A linked list node structure.
+ * @str: Pointer to a string.
+ * @len: Length of the string.
+ * @next: Pointer to the next node in the linked list.
+ *
+ * Description:
+ * This structure defines a node for a singly linked list.
+ * Each node contains a string, its length, and a pointer to the next node.
+ */
 typedef struct list_s
 {
 	char *str;
@@ -12,7 +22,6 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
-list_t *add_node(list_t **head, const char *str);
 size_t print_list(const list_t *h);
 
 #endif
