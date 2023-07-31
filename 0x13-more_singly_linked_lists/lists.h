@@ -14,8 +14,8 @@
  */
 typedef struct listint_s
 {
-    int n;
-    struct listint_s *next;
+	int n;
+	struct listint_s *next;
 } listint_t;
 
 size_t listint_len(const listint_t *h);
@@ -26,4 +26,5 @@ int pop_listint(listint_t **head);
 void free_listint(listint_t *head);
 int sum_listint(listint_t *head);
 void free_listint2(listint_t **head);
-#endif
+
+#endif /* _HEADER_ */
