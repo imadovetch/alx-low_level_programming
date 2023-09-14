@@ -1,0 +1,1 @@
+lincked lists are easy
