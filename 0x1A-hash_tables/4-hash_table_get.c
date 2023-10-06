@@ -1,29 +1,33 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_get - Retrieve the value associated with
- *                  a key in a hash table.
- * @ht: A pointer to the hash table.
- * @key: The key to get the value of.
+ * hash_table_get - This function retrieves a
+ *  value associated with a key in a hash table.
  *
- * Return: If the key cannot be matched - NULL.
- *         Otherwise - the value associated with key in ht.
+ * Parameters:
+ * @ht: a pointer to the hash table.
+ * @key: the key to search for in the hash table.
+ *
+ * Return:- If the key or hash table is NULL,
+ *  or if the key is not found, the function returns NULL.
+ * - If the key is found, the function returns
+ *  the value associated with that key.
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	hash_node_t *node;
-	unsigned long int index;
+	unsigned long int idx;
 
-	if (ht == NULL || key == NULL || *key == '\0')
+	if (key == NULL || ht == NULL)
 		return (NULL);
 
-	index = key_index((const unsigned char *)key, ht->size);
-	if (index >= ht->size)
-		return (NULL);
+	idx = key_index((const unsigned char *)key, ht->size);
+	node = ht->array[idx];
 
-	node = ht->array[index];
-	while (node && strcmp(node->key, key) != 0)
-		node = node->next;
-
-	return ((node == NULL) ? NULL : node->value);
+	for (; node != NULL; node = node->next)
+	{
+		if (strcmp(node->key, key) == 0)
+		return (node->value);
+	}
+	return (NULL);
 }
