@@ -1,67 +1,74 @@
 #include "search_algos.h"
 
-/**
- * advanced_binary_recursive - Searches recursively for a value in a sorted
- *                             array of integers using binary search.
- * @array: A pointer to the first element of the [sub]array to search.
- * @left: The starting index of the [sub]array to search.
- * @right: The ending index of the [sub]array to search.
- * @value: The value to search for.
- *
- * Return: If the value is not present, -1.
- *         Otherwise, the index where the value is located.
- *
- * Description: Prints the [sub]array being searched after each change.
- */
-int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
-{
-	size_t i;
-
-	/* If the right boundary is less than the left boundary */
-	if (right < left)
-		/* Value not found, return -1 */
-		return (-1);
-
-	printf("Searching in array: ");
-
-	/* Print the [sub]array being searched */
-	for (i = left; i < right; i++)
-
-		printf("%d, ", array[i]);
-
-	printf("%d\n", array[i]);
-	/* Calculate the middle index */
-	i = left + (right - left) / 2;
-
-	/* If the middle element is the value and it's the first occurrence */
-	if (array[i] == value && (i == left || array[i - 1] != value))
-		/* Return the index */
-		return (i);
-
-	/* If the middle element is greater than or equal to the value */
-	if (array[i] >= value)
-		/* Recursively search the left subarray */
-		return (advanced_binary_recursive(array, left, i, value));
-	/* Recursively search the right subarray */
-	return (advanced_binary_recursive(array, i + 1, right, value));
-}
+int advanced_binary_r(int *array, int start, int end, int value);
+void print_array(int *array, size_t start, size_t end);
 
 /**
- * advanced_binary - Searches for a value in a sorted array
- *                   of integers using advanced binary search.
- * @array: A pointer to the first element of the array to search.
- * @size: The number of elements in the array.
- * @value: The value to search for.
+ * advanced_binary - searches for a value in a sorted array of integers
+ * using the Binary search algorithm
+ * @array: pointer to the first element of the array to search in
+ * @size: number of elements in the array
+ * @value: value to search for
  *
- * Return: If the value is not present or the array is NULL, -1.
- *         Otherwise, the first index where the value is located.
+ * Return: the index where the value is located, or -1 if value is not present
+ * in array
  */
 
 int advanced_binary(int *array, size_t size, int value)
 {
-	/* Check if the array is NULL or empty */
-	if (array == NULL || size == 0)
+	if (!array)
 		return (-1);
-	/* Call the recursive function */
-	return (advanced_binary_recursive(array, 0, size - 1, value));
+
+	return (advanced_binary_r(array, 0, size - 1, value));
+}
+
+/**
+ * advanced_binary_r - searches for a value in a sorted array of integers
+ * using the Binary search algorithm
+ * @array: pointer to the first element of the array to search in
+ * @start: starting index for binary search
+ * @end: ending index for binary search
+ * @value: value to search for
+ *
+ * Return: the index where the value is located, or -1 if value is not present
+ * in array
+ */
+
+int advanced_binary_r(int *array, int start, int end, int value)
+{
+	int mid;
+
+	if (start > end)
+		return (-1);
+
+	mid = start + (end - start) / 2;
+	print_array(array, start, end);
+
+	if (array[mid] == value)
+	{
+		if (mid == 0 || array[mid - 1] != value)
+			return (mid);
+		else
+			return (advanced_binary_r(array, start, mid, value));
+	}
+	else if (array[mid] < value)
+		return (advanced_binary_r(array, mid + 1, end, value));
+	else
+		return (advanced_binary_r(array, start, mid - 1, value));
+}
+
+
+/**
+ * print_array - prints the elements of an array between two indices
+ * @array: pointer to the first element of the array
+ * @start: starting index
+ * @end: ending index
+ */
+void print_array(int *array, size_t start, size_t end)
+{
+	printf("Searching in array: ");
+	for (; start < end; start++)
+		printf("%d, ", array[start]);
+
+	printf("%d\n", array[start]);
 }
